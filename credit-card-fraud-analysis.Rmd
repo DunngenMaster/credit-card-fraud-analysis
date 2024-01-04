@@ -30,3 +30,9 @@ ccf<- read.csv("ccf_simulation.csv")
                   type= factor(type)
               )
 ```
+
+```{r}
+#Missing values:
+ccf<- ccf %>%  filter(amount <8000000)
+sum(is.na(ccf))
+```

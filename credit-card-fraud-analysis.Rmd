@@ -36,3 +36,9 @@ ccf<- read.csv("ccf_simulation.csv")
 ccf<- ccf %>%  filter(amount <8000000)
 sum(is.na(ccf))
 ```
+
+```{r}
+   ccf_red<- ccf %>%
+           filter(type == c("CASH_OUT","TRANSFER"))
+  write.csv(ccf_red, "ccf_red.csv")
+```

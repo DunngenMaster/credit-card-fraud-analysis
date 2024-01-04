@@ -1,0 +1,19 @@
+---
+title: "Credit card fraud analysis"
+output:
+  pdf_document: default
+  html_document: default
+date: "2023-12-03"
+Author: "Ashutosh, Pratiksha, Huichuan"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r,warning=FALSE}
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+library(gtsummary)
+```

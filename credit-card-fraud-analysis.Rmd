@@ -42,3 +42,27 @@ sum(is.na(ccf))
            filter(type == c("CASH_OUT","TRANSFER"))
   write.csv(ccf_red, "ccf_red.csv")
 ```
+
+
+```{r}
+
+ccf <- ccf %>%
+  filter(isFraud == 1) %>%
+  slice_sample(n = 1000, replace = FALSE) %>%
+    bind_rows(ccf %>%
+      filter(isFraud == 0) %>%
+        slice_sample(n = 4000, replace = FALSE))
+
+  ccf %>% 
+      select(isFraud,type) %>% 
+        tbl_summary(
+          by=isFraud,
+          digits= list(
+            all_continuous()~ c(2,2)
+            ),
+            statistic= list(
+              all_continuous()~"{mean} ({sd})"
+            )
+) 
+
+```

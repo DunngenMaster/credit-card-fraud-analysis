@@ -21,3 +21,12 @@ library(gtsummary)
 ```{r}
 ccf<- read.csv("ccf_simulation.csv")
 ```
+
+```{r}
+
+  ccf<- ccf %>%
+            mutate(
+              isFraud=factor(isFraud),
+                  type= factor(type)
+              )
+```

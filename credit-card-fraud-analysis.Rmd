@@ -78,3 +78,18 @@ ggplot(ccf,aes(fill=type, x= isFraud, group=type))+
     )+scale_x_discrete(labels =c("Not Fraud","Fraud"))
 
 ```
+
+Hypotheses Testing
+
+$H_0: \text{The transaction type and fraud status are independant }$
+$H_A: \text{The transaction type and fraud status are dependant}$
+
+```{r}
+contigency_table <- table(ccf$type,ccf$isFraud)
+chi_sq_result <- chisq.test(contigency_table)
+print(contigency_table)
+print(chi_sq_result)
+```
+
+Decision: We reject the null hypothesis
+Conclusion: Their is any strong evidence that the transaction type and fraud status are dependant.
